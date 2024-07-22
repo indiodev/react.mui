@@ -1,26 +1,43 @@
-import { Button } from '@components/ui/button';
-import { Input } from '@components/ui/input';
+import { Box, Button, Container, TextField } from '@mui/material';
 import { CheckCircle2Icon } from 'lucide-react';
 import React from 'react';
 
 export function Root(): React.ReactElement {
 	return (
-		<div className="h-screen w-screen flex items-center justify-center">
-			<form
-				className="p-8 flex gap-2 max-w-2xl w-full"
+		<Container
+			component={'div'}
+			sx={{
+				display: 'flex',
+				flexDirection: 'row',
+				alignItems: 'center',
+				justifyContent: 'center',
+				height: '100vh',
+				width: '100vw',
+			}}
+			// className="h-screen w-screen flex items-center justify-center"
+		>
+			<Box
+				component={'form'}
+				sx={{
+					display: 'flex',
+					gap: '1rem',
+				}}
+				// className="p-8 flex gap-2 max-w-2xl w-full"
 				onSubmit={(e) => e.preventDefault()}
 			>
-				<Input
+				<TextField
+					sx={{ width: '100%' }}
 					placeholder="Full Name"
-					className="flex-1rounded-md border border-green-600 placeholder:text-green-400"
+					variant="outlined"
 				/>
+
 				<Button
-					variant="default"
-					className="bg-green-600"
+					variant="contained"
+					sx={{ borderRadius: '8px', padding: '0.5rem 1rem' }}
 				>
 					<CheckCircle2Icon />
 				</Button>
-			</form>
-		</div>
+			</Box>
+		</Container>
 	);
 }
